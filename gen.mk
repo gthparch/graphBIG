@@ -19,7 +19,7 @@ pfm_cxx:
 	@${MAKE} --no-print-directory -C ${ROOT}/tools all
 
 clean: ${CLEANDIRS}
-	@rm -f output.log
+	@rm -f output.log qsim/*.tar
 
 ${CLEANDIRS}:
 	@${MAKE} -C $(@:clean-%=%) clean
@@ -43,7 +43,9 @@ ${TESTDIRS}:
 
 travis-verify: pfm_cxx ${TRAVIS_DIR:%=test-%}
 
-
+qsim:
+	cd benchmark; make -j4
+	cd qsim; ./gen.sh
 
 help: ${HELPDIRS}
 
@@ -57,5 +59,5 @@ ${HELPDIRS}:
 .PHONY: subdirs $(HELPDIRS)
 .PHONY: subdirs $(TESTDIRS)
 .PHONY: subdirs $(CLEANDIRS)
-.PHONY: all run clean verify pfm_cxx
+.PHONY: all run clean verify pfm_cxx qsim
 

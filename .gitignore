@@ -68,3 +68,5 @@ csr_bench/tool_genCSR/genCSR
 tools/libpfm-4.5.0
 tools/libpfm-4.6.0
 
+#qsim
+qsim/*.tar

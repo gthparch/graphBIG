@@ -3,6 +3,10 @@
 #include <stdint.h>
 #include <iostream>
 
+#ifdef QSIM
+#include "qsim_magic.h"
+#endif
+
 extern "C" unsigned __attribute__ ((noinline)) SIM_BEGIN(bool i);
 extern "C" unsigned __attribute__ ((noinline)) SIM_END(bool i); 
 

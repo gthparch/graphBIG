@@ -79,6 +79,10 @@ ifeq ($(ARM64), 1)
   EXTRA_LIBS=
 endif
 
+ifeq ($(QSIM), 1)
+  INCLUDE+=-I${QSIM_PREFIX}/include
+endif
+
 EXTRA_LIBS+=${PERF_LIBS}
 CXX_FLAGS+=$(EXTRA_CXX_FLAGS) $(INCLUDE)
 LINKER_OPTIONS+=$(LD_FLAGS) $(CXX_FLAGS)
